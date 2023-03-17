@@ -3,17 +3,21 @@ import { dataFile } from './data.js'
 
 
 
+
 const readFile = (dataInput) => {
     return new Promise((resolve,reject) => {
-        fs.readFile(dataInput,'utf8', (err,data) => {
-            if (err) reject(err)
-            else {
-                resolve(data)
-            }
+        dataInput.forEach((item) => {
+            fs.writeFile('./data.txt',item.id + item.title + item.description + '\n \n' ,{flag : 'a+'}, (err,) => {
+                if (err) reject(err)
+                else {
+                    resolve("Daten erstellt")
+                }
+            })
         })
     })
 }
 
 
 
-
+readFile(dataFile)
+.then(res => (console.log(res)))
