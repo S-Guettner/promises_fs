@@ -3,7 +3,7 @@ import { dataFile } from './data.js'
 
 
 
-
+// write file foreach item
 const readFile = (dataInput) => {
     return new Promise((resolve,reject) => {
         dataInput.forEach((item) => {
